@@ -1,5 +1,5 @@
-<section class="moon-section moon-features" id="fitur" aria-labelledby="features-title">
-    <span class="moon-anchor-alias" id="artikel" aria-hidden="true"></span>
+<section class="moon-section moon-features" id="features" aria-labelledby="features-title">
+    <span class="moon-anchor-alias" id="features" aria-hidden="true"></span>
     <div class="moon-section-heading">
         <p class="moon-eyebrow">Informasi dalam satu tempat</p>
         <h2 id="features-title">Fitur Utama</h2>

@@ -1,4 +1,4 @@
-<section class="moon-hero">
+<section class="moon-hero" id="hero">
     <div class="moon-container moon-hero__inner">
         <div class="moon-hero__copy">
             <p class="moon-eyebrow">Monitoring Kandang Sapi</p>

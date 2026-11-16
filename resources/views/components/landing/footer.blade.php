@@ -20,6 +20,12 @@
                 <a href="#umum">Kontak</a>
                 <a href="#faq">FAQ</a>
             </div>
+            <div>
+                <strong>Kontak</strong>
+                <a href="https://wa.me/12321321421" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="mailto:hello@moonitor.id">dudut@gmail.com</a>
+                <a href="tel:+6281234567890">+62 812-3456-7890</a>
+            </div>
         </div>
     </div>
     <div class="moon-container moon-footer__bottom">

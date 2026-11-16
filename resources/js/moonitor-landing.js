@@ -1,36 +1,48 @@
 (() => {
+    const header = document.getElementById('moon-header');
     const navigation = document.querySelector('#moon-navigation');
     const menuToggle = document.querySelector('.moon-menu-toggle');
 
+    if (header) {
+        const onScroll = () => {
+            header.classList.toggle('is-scrolled', window.scrollY > 20);
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
     if (navigation instanceof HTMLElement && menuToggle instanceof HTMLButtonElement) {
-        const closeMenu = () => {
-            navigation.classList.remove('is-open');
-            menuToggle.setAttribute('aria-expanded', 'false');
-            menuToggle.setAttribute('aria-label', 'Buka navigasi');
+        const setMenu = (open) => {
+            menuToggle.setAttribute('aria-expanded', String(open));
+            menuToggle.setAttribute('aria-label', open ? 'Tutup navigasi' : 'Buka navigasi');
+            navigation.classList.toggle('is-open', open);
         };
 
-        menuToggle.addEventListener('click', () => {
+        menuToggle.addEventListener('click', (event) => {
+            event.stopPropagation();
             const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
-            navigation.classList.toggle('is-open', !isOpen);
-            menuToggle.setAttribute('aria-expanded', String(!isOpen));
-            menuToggle.setAttribute('aria-label', isOpen ? 'Buka navigasi' : 'Tutup navigasi');
+            setMenu(!isOpen);
         });
 
         navigation.addEventListener('click', (event) => {
             if (event.target instanceof Element && event.target.closest('a')) {
-                closeMenu();
+                setMenu(false);
             }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') setMenu(false);
         });
 
         document.addEventListener('click', (event) => {
             if (event.target instanceof Node && !navigation.contains(event.target) && !menuToggle.contains(event.target)) {
-                closeMenu();
+                setMenu(false);
             }
         });
 
         window.addEventListener('resize', () => {
-            if (window.matchMedia('(min-width: 681px)').matches) {
-                closeMenu();
+            if (window.matchMedia('(min-width: 821px)').matches) {
+                setMenu(false);
             }
         });
     }
@@ -50,6 +62,43 @@
     updateCurrentLink();
     window.addEventListener('hashchange', updateCurrentLink);
 
+    // ===== Final CTA: contoh data kandang yang bergerak pelan =====
+    const ctaStatus = document.querySelector('[data-cta-status]');
+    const ctaValues = document.querySelectorAll('[data-cta-value]');
+
+    if (ctaStatus && ctaValues.length
+        && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        // Batas waspada hanya contoh, sesuaikan dengan standar kandang Anda.
+        const metrics = {
+            temp: { value: 28, step: 1.2, min: 26, max: 32, warnAbove: 30.5 },
+            hum: { value: 65, step: 4, min: 55, max: 80, warnAbove: 75 },
+            nh3: { value: 12, step: 4, min: 6, max: 26, warnAbove: 20 },
+            h2s: { value: 3, step: 1.5, min: 1, max: 9, warnAbove: 7 },
+        };
+
+        setInterval(() => {
+            let anyWarn = false;
+
+            Object.entries(metrics).forEach(([key, m]) => {
+                m.value = Math.min(m.max, Math.max(m.min, m.value + (Math.random() - 0.5) * m.step));
+                const warn = m.value > m.warnAbove;
+                anyWarn = anyWarn || warn;
+
+                const valueEl = document.querySelector(`[data-cta-value="${key}"]`);
+                const stateEl = document.querySelector(`[data-cta-state="${key}"]`);
+                if (valueEl) valueEl.textContent = String(Math.round(m.value));
+                if (stateEl) {
+                    stateEl.textContent = warn ? 'Waspada' : 'Normal';
+                    stateEl.classList.toggle('is-warn', warn);
+                }
+            });
+
+            ctaStatus.classList.toggle('is-warn', anyWarn);
+            ctaStatus.lastChild.textContent = anyWarn ? 'Waspada' : 'Aman';
+        }, 2500);
+    }
+
+    // ===== Tab "Tentang" =====
     const tabs = Array.from(document.querySelectorAll('[data-about-tab]'));
     const panel = document.querySelector('[data-about-content]');
 

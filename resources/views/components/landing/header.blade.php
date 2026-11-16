@@ -1,4 +1,4 @@
-<header class="moon-header">
+<header class="moon-header" id="moon-header">
     <div class="moon-container moon-header__inner">
         <a class="moon-logo" href="{{ route('home') }}" aria-label="MOONITOR — beranda">
             <img src="{{ asset('favicon.png') }}" alt="" aria-hidden="true">
@@ -10,10 +10,12 @@
             <span></span>
         </button>
         <nav class="moon-nav" id="moon-navigation" aria-label="Navigasi utama">
+            <a href="#hero">Beranda</a>
+            <a href="#features">Fitur</a>
             <a href="#dashboard">Dashboard</a>
-            <a href="#artikel">Artikel</a>
-            <a href="#riwayat">Riwayat</a>
-            <a href="#umum">Pengaturan</a>
+            <a href="#teknologi">Cara Kerja</a>
+            <a href="#testimonials">Testimoni</a>
+            <a href="#faq">FAQ</a>
         </nav>
     </div>
 </header>

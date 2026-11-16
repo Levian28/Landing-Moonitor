@@ -8,6 +8,7 @@
         @include('components.landing.about')
         @include('components.landing.dashboard')
         @include('components.landing.technology')
+        @include('components.landing.testimonials')
         @include('components.landing.faq')
     </div>
     @include('components.landing.cta')
