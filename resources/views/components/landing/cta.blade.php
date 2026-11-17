@@ -1,4 +1,4 @@
-<section class="moon-container moon-final-cta" aria-labelledby="final-cta-title">
+<section class="moon-container moon-final-cta" id="kontak" aria-labelledby="final-cta-title">
     <div class="moon-final-cta__copy">
         <p class="moon-eyebrow">Ayo tingkatkan</p>
         <h2 id="final-cta-title">Tingkatkan Pengelolaan Peternakan dengan Monitoring Kandang Cerdas dari MOONITOR.</h2>
