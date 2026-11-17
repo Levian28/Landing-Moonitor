@@ -3,10 +3,14 @@
     "name": "moonitor/landing-page-moonitor",
     "type": "project",
     "description": "MOONITOR landing page built with Laravel.",
-    "keywords": ["laravel", "moonitor", "landing-page"],
+    "keywords": [
+        "laravel",
+        "moonitor",
+        "landing-page"
+    ],
     "license": "MIT",
     "require": {
-        "php": "^8.3",
+        "php": "^8.4",
         "laravel/framework": "^13.17",
         "laravel/tinker": "^3.0"
     },
