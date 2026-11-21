@@ -1,0 +1,86 @@
+/* ===== Strip promo ===== */
+.moon-promo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  overflow: hidden;
+  margin: 0 0 calc(var(--moon-section-gap) / 2);
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid rgba(34, 165, 22, .45);
+  border-radius: 10px;
+  background: linear-gradient(105deg, #0b102c 0%, #090a2b 62%, #101728 100%);
+}
+
+.moon-promo__copy {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  max-width: 780px;
+}
+
+.moon-promo .moon-eyebrow {
+  margin-bottom: 4px;
+  color: #83dc69;
+}
+
+.moon-promo h2 {
+  margin-bottom: 8px;
+  font-size: clamp(1.25rem, 1rem + 1.2vw, 1.75rem);
+  line-height: 1.2;
+}
+
+.moon-promo__copy>p:not(.moon-eyebrow) {
+  margin-bottom: 16px;
+  color: var(--moon-muted);
+  font-size: var(--fs-body);
+}
+
+.moon-promo__art {
+  position: relative;
+  display: none;
+  /* dekoratif; disembunyikan di layar kecil agar teks didahulukan */
+  width: 72px;
+  height: 72px;
+  flex: none;
+  margin-right: 20px;
+  border: 1px solid rgba(67, 211, 43, .28);
+  border-radius: 50%;
+}
+
+@media (min-width: 640px) {
+  .moon-promo__art {
+    display: block;
+  }
+}
+
+.moon-promo__ring {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(67, 211, 43, .7);
+  border-radius: 50%;
+}
+
+.moon-promo__dot {
+  position: absolute;
+  top: 31px;
+  left: 31px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--moon-green-bright);
+  box-shadow: 0 0 15px var(--moon-green-bright);
+}
+
+.moon-promo__pulse {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  width: 25px;
+  height: 1px;
+  transform: rotate(-42deg);
+  transform-origin: left center;
+  background: var(--moon-green-bright);
+  opacity: .8;
+}

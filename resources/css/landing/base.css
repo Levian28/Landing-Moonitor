@@ -1,0 +1,92 @@
+body.moon-landing {
+  margin: 0;
+  background: var(--moon-black);
+  color: var(--moon-white);
+  font: var(--fs-body)/1.6 var(--moon-font);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  /* Mencegah overflow horizontal */
+}
+
+.moon-landing *,
+.moon-landing *::before,
+.moon-landing *::after {
+  box-sizing: border-box;
+}
+
+.moon-landing a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.moon-landing img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.moon-landing h1,
+.moon-landing h2,
+.moon-landing h3,
+.moon-landing p {
+  margin: 0;
+}
+
+.moon-landing h1,
+.moon-landing h2,
+.moon-landing h3 {
+  font-family: var(--moon-display);
+  text-wrap: balance;
+}
+
+.moon-landing p {
+  text-wrap: pretty;
+}
+
+.moon-landing :focus-visible {
+  outline: 2px solid var(--moon-green-bright);
+  outline-offset: 3px;
+}
+
+.moon-skip {
+  position: absolute;
+  z-index: 200;
+  top: -60px;
+  left: 12px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: var(--moon-blue);
+  color: #fff;
+  transition: top var(--moon-t-fast) var(--moon-ease);
+}
+
+.moon-skip:focus {
+  top: 8px;
+}
+
+.moon-anchor-alias {
+  position: absolute;
+  top: 0;
+  display: block;
+  height: 0;
+}
+
+/* Smooth scroll hanya jika tidak ada preferensi reduced-motion */
+html {
+  scroll-padding-top: var(--moon-header-offset, 96px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+section[id],
+.moon-anchor-alias {
+  scroll-margin-top: var(--moon-header-offset, 96px);
+}
+
+:root {
+  interpolate-size: allow-keywords;
+}

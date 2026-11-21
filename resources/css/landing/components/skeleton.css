@@ -1,0 +1,200 @@
+/* ==========================================================================
+   MOONITOR Skeleton Loading UI
+   Desain placeholder adaptif dengan efek shimmer sci-fi yang halus.
+   Mencegah layout shift (CLS) dan mendukung prefers-reduced-motion.
+   ========================================================================== */
+
+/* Shimmer gradient animation */
+@keyframes moon-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Progressive enhancement: jika JS tidak aktif, sembunyikan skeleton */
+body:not(.moon-has-js) .moon-skeleton {
+  display: none !important;
+}
+
+/* Base Skeleton Styling */
+.moon-skeleton {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  background: linear-gradient(90deg,
+      rgba(11, 16, 44, 0.95) 0%,
+      rgba(18, 50, 123, 0.4) 25%,
+      rgba(67, 211, 43, 0.12) 50%,
+      rgba(18, 50, 123, 0.4) 75%,
+      rgba(11, 16, 44, 0.95) 100%);
+  background-size: 200% 100%;
+  animation: moon-shimmer 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--moon-t-ui) ease, visibility var(--moon-t-ui) ease;
+  pointer-events: none;
+}
+
+/* Pastikan container skeleton memiliki positioning context */
+[data-skeleton] {
+  position: relative;
+}
+
+/* State Loaded: skeleton menghilang secara halus */
+[data-skeleton].is-loaded>.moon-skeleton,
+.moon-skeleton.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--moon-t-ui) ease, visibility 0s linear var(--moon-t-ui);
+}
+
+/* State Loading pada target gambar */
+[data-skeleton].is-loading img {
+  opacity: 0;
+}
+
+[data-skeleton] img {
+  transition: opacity var(--moon-t-ui) ease;
+}
+
+[data-skeleton].is-loaded img {
+  opacity: 1;
+}
+
+/* State Error: indikasi visual subtle jika gambar gagal dimuat */
+[data-skeleton].is-error>.moon-skeleton {
+  background: rgba(18, 50, 123, 0.6);
+  animation: none;
+}
+
+[data-skeleton].is-error>.moon-skeleton::after {
+  content: "!";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 100, 100, 0.5);
+  color: rgba(255, 150, 150, 0.9);
+  font: 700 1rem/1 var(--moon-display);
+}
+
+/* Komponen Khusus Skeleton */
+
+/* 1. Hero Photo Skeleton */
+.moon-skeleton--hero {
+  border-radius: 12px;
+}
+
+/* 2. Dashboard Preview Skeleton */
+.moon-skeleton--dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.moon-skeleton-dashboard__topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.moon-skeleton__pill {
+  width: 80px;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(66, 88, 255, 0.2);
+}
+
+.moon-skeleton__pill--sm {
+  width: 48px;
+}
+
+.moon-skeleton-dashboard__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+@media (min-width: 640px) {
+  .moon-skeleton-dashboard__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.moon-skeleton__tile {
+  height: 48px;
+  border-radius: 6px;
+  background: rgba(66, 88, 255, 0.15);
+  border: 1px solid rgba(66, 88, 255, 0.25);
+}
+
+.moon-skeleton-dashboard__chart {
+  flex: 1;
+  min-height: 120px;
+  border-radius: 6px;
+  background: rgba(7, 10, 42, 0.6);
+  border: 1px solid rgba(66, 88, 255, 0.2);
+}
+
+/* 3. Workflow Visual Skeleton */
+.moon-skeleton--visual {
+  border-radius: 6px;
+}
+
+/* 4. Icon CTA Skeleton */
+.moon-skeleton--icon {
+  border-radius: 50%;
+}
+
+/* 5. Modal Preview Skeleton */
+.moon-skeleton--modal {
+  min-width: min(100%, 860px);
+  min-height: 380px;
+  margin: auto;
+  border-radius: 8px;
+}
+
+/* 6. Card & Testimonial Skeleton Elements */
+.moon-skeleton-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.moon-skeleton__line {
+  height: 12px;
+  border-radius: 4px;
+  background: rgba(66, 88, 255, 0.18);
+  margin-bottom: 8px;
+}
+
+.moon-skeleton__line--short {
+  width: 45%;
+}
+
+.moon-skeleton__line--medium {
+  width: 70%;
+}
+
+.moon-skeleton__line--full {
+  width: 100%;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .moon-skeleton {
+    animation: none !important;
+    background: #0d1238 !important;
+  }
+}

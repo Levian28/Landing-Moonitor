@@ -1,0 +1,116 @@
+/* ===== Footer ===== */
+.moon-footer {
+  border-top: 1px solid rgba(47, 42, 91, .42);
+  background: var(--moon-purple);
+}
+
+.moon-footer__main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  padding-top: clamp(28px, 4vw, 40px);
+  padding-bottom: 24px;
+}
+
+.moon-footer__brand {
+  max-width: 430px;
+}
+
+.moon-footer__brand>p {
+  max-width: 52ch;
+  margin-top: 8px;
+  color: var(--moon-muted);
+  font-size: var(--fs-small);
+}
+
+.moon-footer__links {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 20px;
+}
+
+.moon-footer__links>div {
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  gap: 2px;
+  color: var(--moon-muted);
+  font-size: var(--fs-small);
+}
+
+.moon-footer__links>div:last-child {
+  grid-column: 1 / -1;
+}
+
+.moon-footer__links strong {
+  margin-bottom: 4px;
+  color: var(--moon-white);
+  font-size: var(--fs-small);
+}
+
+.moon-footer__links a,
+.moon-footer__bottom a {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  overflow-wrap: anywhere;
+  transition: color var(--moon-t-fast) ease;
+}
+
+@media (pointer: coarse) {
+  .moon-footer__links a,
+  .moon-footer__bottom a {
+    min-height: 44px;
+  }
+}
+
+@media (hover: hover) {
+  .moon-footer__links a:hover,
+  .moon-footer__bottom a:hover {
+    color: var(--moon-green-bright);
+  }
+}
+
+.moon-footer__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding-top: 8px;
+  padding-bottom: 16px;
+  border-top: 1px solid rgba(47, 42, 91, .3);
+  color: var(--moon-muted);
+  font-size: var(--fs-caption);
+}
+
+@media (min-width: 640px) {
+  .moon-footer__links {
+    grid-template-columns: repeat(3, minmax(0, auto));
+    gap: 24px clamp(32px, 6vw, 72px);
+  }
+
+  .moon-footer__links>div:last-child {
+    grid-column: auto;
+  }
+
+  .moon-footer__bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 820px) {
+  .moon-footer__main {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .moon-footer__links {
+    width: auto;
+    justify-content: end;
+  }
+}

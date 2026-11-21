@@ -22,9 +22,9 @@
             </div>
             <div>
                 <strong>Kontak</strong>
-                <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                <a href="mailto:hello@moonitor.id">hello@moonitor.id</a>
-                <a href="tel:+6281234567890">+62 812-3456-7890</a>
+                <a href="https://wa.me/6281216103822" target="_blank" rel="noopener noreferrer" data-track-cta="contact">WhatsApp</a>
+                <a href="mailto:techcarehero@gmail.com" data-track-cta="contact">hello@moonitor.id</a>
+                <a href="tel:+6281216103822" data-track-cta="contact">+62 812-1610-3822</a>
             </div>
         </div>
     </div>

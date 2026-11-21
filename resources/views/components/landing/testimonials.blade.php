@@ -1,4 +1,4 @@
-<section class="moon-section moon-testimonials" id="testimonials" aria-labelledby="testimonials-title">
+<section class="moon-section moon-testimonials" id="testimonials" aria-labelledby="testimonials-title" data-track-section="testimonials">
     <header class="moon-testimonials__intro">
         <p class="moon-eyebrow">Cerita dari peternak</p>
         <h2 id="testimonials-title">Apa Kata Peternak tentang MOONITOR?</h2>
@@ -25,8 +25,8 @@
         </div>
 
         {{-- CATATAN: testimoni di bawah adalah CONTOH. Ganti dengan testimoni asli
-             (dan izin pemberi testimoni) sebelum website dipublikasikan. --}}
-        <div class="moon-testimonials__stack" aria-label="Contoh testimoni peternak">
+             (beserta izinnya) sebelum rilis. --}}
+        <div class="moon-testimonials__stack" data-skeleton="testimonials" role="region" aria-label="Contoh testimoni peternak" tabindex="0">
             <article class="moon-testimonial-card moon-testimonial-card--first">
                 <p class="moon-testimonial-card__rating" aria-label="Rating contoh: 5 dari 5">
                     <span aria-hidden="true">★★★★★</span>

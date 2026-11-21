@@ -1,0 +1,98 @@
+/* ===== FAQ ===== */
+.moon-faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+.moon-faq-item {
+  overflow: hidden;
+  border: 1px solid var(--moon-line);
+  border-radius: 8px;
+  background: var(--moon-card);
+  transition: border-color var(--moon-t-ui) ease;
+}
+
+.moon-faq-item[open] {
+  border-color: rgba(67, 211, 43, .45);
+}
+
+.moon-faq-item summary {
+  position: relative;
+  display: block;
+  min-height: 52px;
+  padding: 14px 52px 14px 18px;
+  color: var(--moon-white);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  line-height: 1.4;
+  list-style: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.moon-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.moon-faq-item summary:focus-visible {
+  outline-offset: -3px;
+}
+
+.moon-faq-item summary::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  color: var(--moon-green-bright);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.moon-faq-item[open] summary::after {
+  content: "−";
+}
+
+.moon-faq-item p {
+  max-width: 82ch;
+  padding: 0 18px 18px;
+  color: var(--moon-muted);
+  font-size: var(--fs-body);
+  line-height: 1.65;
+}
+
+.moon-faq-item[open] p {
+  animation: moon-faq-in 160ms ease-out both;
+}
+
+@keyframes moon-faq-in {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (hover: hover) {
+  .moon-faq-item:not([open]):hover {
+    border-color: var(--moon-green);
+  }
+}
+
+/* Animasi ekspansi details jika didukung browser (progressive enhancement) */
+@supports selector(::details-content) {
+  .moon-faq-item::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition: block-size var(--moon-t-ui) var(--moon-ease), content-visibility var(--moon-t-ui) allow-discrete;
+  }
+
+  .moon-faq-item[open]::details-content {
+    block-size: auto;
+  }
+}

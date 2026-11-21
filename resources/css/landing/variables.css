@@ -1,0 +1,35 @@
+body.moon-landing {
+  /* Palet warna brand */
+  --moon-black: #080022;
+  --moon-purple: #080022;
+  --moon-card: #070a2a;
+  --moon-card-raised: #0b0d32;
+  --moon-line: #12327b;
+  --moon-white: #f7f6ff;
+  --moon-muted: #a6a2bd;
+  --moon-green: #22a516;
+  --moon-green-bright: #43d32b;
+  --moon-blue: #4258ff;
+  --moon-font: "Chakra Petch", "Segoe UI", sans-serif;
+  --moon-display: "Oxanium", "Arial Black", sans-serif;
+
+  /* Layout & Spacing */
+  --moon-max: 1120px;
+  --moon-gutter: clamp(16px, 5vw, 40px);
+  --moon-section-gap: clamp(40px, 6vw, 72px);
+  --moon-header-offset: 96px;
+
+  /* Skala tipografi */
+  --fs-caption: .8125rem;
+  --fs-small: .875rem;
+  --fs-body: clamp(.9375rem, .9rem + .2vw, 1.0625rem);
+  --fs-lead: clamp(1rem, .95rem + .3vw, 1.1875rem);
+  --fs-h3: clamp(1rem, .95rem + .3vw, 1.125rem);
+  --fs-h2: clamp(1.5rem, 1.15rem + 1.5vw, 2.25rem);
+  --fs-h1: clamp(2rem, 1.3rem + 3.2vw, 3.5rem);
+
+  /* Transisi & Motion */
+  --moon-ease: cubic-bezier(.2, .7, .2, 1);
+  --moon-t-fast: 120ms;
+  --moon-t-ui: 200ms;
+}

@@ -1,1 +1,1 @@
-import './moonitor-landing.js';
+import './landing/main.js';

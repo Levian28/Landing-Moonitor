@@ -1,0 +1,219 @@
+/* ===== Header / nav ===== */
+.moon-header {
+  position: fixed;
+  top: 12px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0 12px;
+  pointer-events: none;
+  transition: transform var(--moon-t-ui) var(--moon-ease);
+}
+
+.moon-header.is-scrolled {
+  transform: translateY(-4px);
+}
+
+.moon-header__inner {
+  pointer-events: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 8px 10px 8px 18px;
+  border-radius: 18px;
+  background: rgba(8, 0, 34, .8);
+  border: 1px solid rgba(136, 126, 181, .28);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  transition: background var(--moon-t-ui) ease, box-shadow var(--moon-t-ui) ease, border-color var(--moon-t-ui) ease;
+}
+
+.moon-header.is-scrolled .moon-header__inner {
+  background: rgba(8, 0, 34, .95);
+  border-color: rgba(67, 211, 43, .35);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .5), 0 0 16px rgba(67, 211, 43, .12);
+}
+
+.moon-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-family: var(--moon-display);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  color: #fff;
+  line-height: 1;
+}
+
+.moon-logo img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* Tombol menu: hit area 44px, bar morph jadi X (transform only) */
+.moon-menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .15);
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: background var(--moon-t-fast) ease, border-color var(--moon-t-fast) ease;
+}
+
+.moon-menu-toggle:active {
+  background: rgba(255, 255, 255, .16);
+}
+
+.moon-menu-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform var(--moon-t-ui) var(--moon-ease), opacity var(--moon-t-fast) ease;
+}
+
+.moon-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.moon-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.moon-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile: dropdown. Saat tertutup pakai visibility supaya link keluar dari
+   tab order; delay visibility menjaga transisi tutup tetap terlihat dan
+   kedua arah tetap interruptible. */
+.moon-nav {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  padding: 10px;
+  border-radius: 18px;
+  background: rgba(8, 0, 34, .97);
+  border: 1px solid rgba(255, 255, 255, .12);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .6);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity var(--moon-t-ui) ease-out, transform var(--moon-t-ui) var(--moon-ease), visibility 0s linear var(--moon-t-ui);
+}
+
+.moon-nav.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.moon-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: rgba(247, 246, 255, .85);
+  font-family: var(--moon-font);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  transition: background var(--moon-t-fast) ease, color var(--moon-t-fast) ease, border-color var(--moon-t-fast) ease;
+}
+
+.moon-nav a:active {
+  background: rgba(67, 211, 43, .2);
+}
+
+.moon-nav a:focus-visible,
+.moon-nav a[aria-current="location"] {
+  background: rgba(67, 211, 43, .14);
+  color: var(--moon-green-bright);
+  border-color: rgba(67, 211, 43, .35);
+}
+
+@media (hover: hover) {
+  .moon-menu-toggle:hover {
+    background: rgba(255, 255, 255, .12);
+    border-color: rgba(67, 211, 43, .4);
+  }
+
+  .moon-nav a:hover {
+    background: rgba(67, 211, 43, .14);
+    color: var(--moon-green-bright);
+    border-color: rgba(67, 211, 43, .35);
+  }
+}
+
+/* Desktop: pill nav inline (JS pakai breakpoint 820px yang sama) */
+@media (min-width: 821px) {
+  .moon-header {
+    top: 16px;
+    padding: 0 16px;
+  }
+
+  .moon-header__inner {
+    padding: 8px 18px 8px 22px;
+    border-radius: 999px;
+  }
+
+  .moon-menu-toggle {
+    display: none;
+  }
+
+  .moon-nav {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    transition: none;
+  }
+
+  .moon-nav a {
+    min-height: 40px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: var(--fs-small);
+  }
+}

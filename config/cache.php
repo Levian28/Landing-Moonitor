@@ -6,12 +6,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Cache Store
+    | Cache Store Default
     |--------------------------------------------------------------------------
     |
-    | This option controls the default cache store that will be used by the
-    | framework. This connection is utilized if another isn't explicitly
-    | specified when running a cache operation inside the application.
+    | Store default untuk operasi cache bila tidak ditentukan secara eksplisit.
     |
     */
 
@@ -22,9 +20,8 @@ return [
     | Cache Stores
     |--------------------------------------------------------------------------
     |
-    | Here you may define all of the cache "stores" for your application as
-    | well as their drivers. You may even define multiple stores for the
-    | same cache driver to group types of items stored in your caches.
+    | Definisi store beserta driver-nya. Satu driver boleh dipakai di beberapa
+    | store untuk memisahkan jenis data.
     |
     | Supported drivers: "array", "database", "file", "memcached",
     |                    "redis", "dynamodb", "storage", "octane",
@@ -109,12 +106,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cache Key Prefix
+    | Prefix Cache Key
     |--------------------------------------------------------------------------
     |
-    | When utilizing the APC, database, memcached, Redis, and DynamoDB cache
-    | stores, there might be other applications using the same cache. For
-    | that reason, you may prefix every cache key to avoid collisions.
+    | Prefix untuk setiap key agar tidak bentrok bila cache (APC, database,
+    | memcached, Redis, DynamoDB) dipakai bersama aplikasi lain.
     |
     */
 
@@ -122,12 +118,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Serializable Classes
+    | Class yang Dapat Diserialisasi
     |--------------------------------------------------------------------------
     |
-    | This value determines the classes that can be unserialized from cache
-    | storage. By default, no PHP classes will be unserialized from your
-    | cache to prevent gadget chain attacks if your APP_KEY is leaked.
+    | Class yang boleh di-unserialize dari cache. Default `false` (tidak ada)
+    | untuk mencegah gadget chain attack jika APP_KEY bocor.
     |
     */
 

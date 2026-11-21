@@ -1,4 +1,4 @@
-<section class="moon-section moon-about" id="tentang" aria-labelledby="about-title">
+<section class="moon-section moon-about" id="tentang" aria-labelledby="about-title" data-track-section="about">
     <span class="moon-anchor-alias" id="umum" aria-hidden="true"></span>
     <div class="moon-about-panel" role="tabpanel" id="about-panel" aria-live="polite" aria-labelledby="about-tab-tentang">
         <div class="moon-about-panel__content" data-about-content>
@@ -41,6 +41,18 @@
         </button>
     </div>
     <div class="moon-about-templates" hidden aria-hidden="true">
+        <template data-about-template="tentang">
+            <p class="moon-eyebrow">Mengenal platform</p>
+            <h2 id="about-title">Tentang MOONITOR</h2>
+            <p>MOONITOR adalah platform yang membantu peternak memahami kondisi kandang sapi. Informasi suhu, kelembapan, dan kualitas udara dikumpulkan dari sensor lalu ditampilkan dengan cara yang mudah dibaca.</p>
+            <h3>Kondisi kandang, lebih mudah dipahami</h3>
+            <p>Peternak dapat melihat pembacaan terbaru dan riwayat yang tersedia untuk mendapat gambaran tentang perubahan di dalam kandang.</p>
+            <ul class="moon-check-list">
+                <li>Informasi suhu dan kelembapan.</li>
+                <li>Kadar amonia dan hidrogen sulfida.</li>
+                <li>Status dan riwayat pembacaan sensor.</li>
+            </ul>
+        </template>
         <template data-about-template="tujuan">
             <p class="moon-eyebrow">Mengapa MOONITOR dibuat?</p>
             <h2>Tujuan Pembuatan</h2>

@@ -1,0 +1,12 @@
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .moon-landing *,
+  .moon-landing *::before,
+  .moon-landing *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    transition-delay: 0s !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

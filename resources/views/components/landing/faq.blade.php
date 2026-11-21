@@ -1,4 +1,4 @@
-<section class="moon-section moon-faq" id="faq" aria-labelledby="faq-title">
+<section class="moon-section moon-faq" id="faq" aria-labelledby="faq-title" data-track-section="faq">
     <div class="moon-section-heading">
         <h2 id="faq-title">Pertanyaan Umum</h2>
         <p>Beberapa pertanyaan yang sering diajukan tentang MOONITOR.</p>

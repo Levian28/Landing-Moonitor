@@ -1,0 +1,175 @@
+/* ===== Tentang (tab) ===== */
+.moon-about {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+.moon-about-panel {
+  display: flex;
+  /* Tinggi tab tertinggi, diukur di JS, supaya pindah tab tidak
+     menggeser layout. 0 (tinggi konten) tanpa JS. */
+  min-height: var(--about-panel-min, 0px);
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--moon-line);
+  border-radius: 8px;
+  background: var(--moon-card);
+}
+
+.moon-about-panel__content {
+  width: 100%;
+  min-width: 0;
+  align-self: center;
+}
+
+.moon-about-panel__content.is-changing {
+  animation: moon-content-in var(--moon-t-ui) ease-out both;
+}
+
+@keyframes moon-content-in {
+  from {
+    opacity: .45;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.moon-about-panel .moon-eyebrow {
+  margin-bottom: 6px;
+  color: var(--moon-green-bright);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.moon-about-panel h2 {
+  margin-bottom: 10px;
+  font-size: var(--fs-h2);
+  line-height: 1.18;
+}
+
+.moon-about-panel p:not(.moon-eyebrow) {
+  color: #c4c0d3;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+
+.moon-about-panel h3 {
+  margin: 14px 0 6px;
+  font-size: var(--fs-h3);
+}
+
+.moon-check-list,
+.moon-step-list {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  color: #c4c0d3;
+  font-size: var(--fs-small);
+  list-style: none;
+}
+
+.moon-check-list li {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.moon-check-list li::before {
+  content: "✓";
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border: 1px solid var(--moon-green);
+  border-radius: 50%;
+  color: var(--moon-green-bright);
+  font-size: .6875rem;
+}
+
+.moon-step-list li {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.moon-step-list span {
+  color: var(--moon-green-bright);
+  font-family: var(--moon-display);
+  font-weight: 700;
+}
+
+.moon-about-links {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+}
+
+.moon-about-link {
+  display: grid;
+  min-height: 52px;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid var(--moon-line);
+  border-radius: 8px;
+  background: var(--moon-card);
+  color: var(--moon-white);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--moon-t-fast) ease, background var(--moon-t-fast) ease;
+}
+
+.moon-about-link:active {
+  background: #0d1138;
+}
+
+.moon-about-link.is-active {
+  border-color: var(--moon-green);
+  background: linear-gradient(100deg, #124321, #0a172a);
+}
+
+@media (hover: hover) {
+  .moon-about-link:hover {
+    border-color: var(--moon-green);
+  }
+}
+
+.moon-about-link__icon {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid var(--moon-green);
+  border-radius: 50%;
+  color: var(--moon-green-bright);
+}
+
+.moon-about-link__icon svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.4;
+}
+
+.moon-about-link strong {
+  font: 700 var(--fs-small)/1.35 var(--moon-font);
+}
+
+@media (min-width: 900px) {
+  .moon-about {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+    gap: 16px;
+  }
+}

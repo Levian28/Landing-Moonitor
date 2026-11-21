@@ -1,7 +1,8 @@
-<section class="moon-section moon-technology" id="teknologi" aria-labelledby="technology-title">
+<section class="moon-section moon-technology" id="teknologi" aria-labelledby="technology-title" data-track-section="technology">
     <div class="moon-section-heading">
         <h2 id="technology-title">Teknologi di Balik MOONITOR</h2>
-        <p>Dari kondisi kandang hingga menjadi informasi yang mudah dipahami. Kenali bagaimana MOONITOR membantu proses pemantauan melalui teknologi sensor.</p>
+        <p data-adaptive-target="technology-description">Dari kondisi kandang hingga menjadi informasi yang mudah dipahami. Kenali bagaimana MOONITOR membantu proses pemantauan melalui teknologi sensor.</p>
+        <template data-adaptive-for="technology-description" data-persona-content="developer">Sensor membaca kondisi kandang, perangkat pengendali memproses datanya, lalu dashboard menampilkan angka, status, dan grafik. Berikut tiap langkah dan komponennya.</template>
     </div>
 
     <ol class="moon-workflow" aria-label="Empat langkah pemantauan MOONITOR">
@@ -11,7 +12,8 @@
                     <span class="moon-workflow-card__number">01</span>
                     <span>Langkah 01</span>
                 </div>
-                <figure class="moon-workflow-card__visual moon-workflow-card__visual--barn">
+                <figure class="moon-workflow-card__visual moon-workflow-card__visual--barn" data-skeleton="workflow-barn">
+                    <div class="moon-skeleton moon-skeleton--visual" aria-hidden="true"></div>
                     <img src="{{ asset('images/cow-barn.jpg') }}" alt="Ilustrasi lingkungan kandang tempat sensor memantau kondisi udara" loading="lazy">
                     <span class="moon-sensor-marker" aria-hidden="true">
                         <svg viewBox="0 0 32 32"><path d="M13 18V7a3 3 0 0 1 6 0v11a7 7 0 1 1-6 0Z"/><path d="M16 12v12"/></svg>
@@ -119,7 +121,7 @@
     </ol>
 
     <div class="moon-technology__cards" aria-label="Komponen utama MOONITOR">
-        <article class="moon-technology-card">
+        <article class="moon-technology-card" data-persona-highlight="developer">
             <span class="moon-technology-card__icon" aria-hidden="true">
                 <svg viewBox="0 0 32 32"><path d="M13 18V7a3 3 0 0 1 6 0v11a7 7 0 1 1-6 0Z"/><path d="M16 12v12"/></svg>
             </span>
@@ -128,7 +130,7 @@
                 <p>Perangkat yang membaca kondisi lingkungan kandang seperti suhu, kelembapan, dan kadar gas.</p>
             </div>
         </article>
-        <article class="moon-technology-card">
+        <article class="moon-technology-card" data-persona-highlight="developer">
             <span class="moon-technology-card__icon" aria-hidden="true">
                 <svg viewBox="0 0 32 32"><rect x="8" y="8" width="16" height="16" rx="3"/><path d="M12 3v5m8-5v5m-8 16v5m8-5v5M3 12h5m-5 8h5m16-8h5m-5 8h5M13 13h6v6h-6z"/></svg>
             </span>
