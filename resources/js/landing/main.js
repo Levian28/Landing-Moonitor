@@ -6,6 +6,7 @@
  * - Telemetri live CTA demo (./components/cta-demo.js)
  * - Tab konten interaktif tentang (./components/about-tabs.js)
  * - Modal dialog pratinjau dashboard (./components/preview-dialog.js)
+ * - Animasi masuk saat scroll & state ambient section (./components/reveal.js)
  * - Adaptive behavior layer (./adaptive/index.js)
  *
  * Semua event listener dikelola dengan siklus hidup AbortController terpadu.
@@ -16,6 +17,7 @@ import { initializeCtaDemo } from './components/cta-demo.js';
 import { initializeAboutTabs } from './components/about-tabs.js';
 import { initializePreviewDialog } from './components/preview-dialog.js';
 import { initializeSkeletonLoading } from './components/skeleton.js';
+import { initializeReveal } from './components/reveal.js';
 import { startAdaptiveLayer, stopAdaptiveLayer } from './adaptive/index.js';
 
 let session = null; // { controller, signal, intervals }
@@ -30,6 +32,7 @@ export function initializeMoonitorLanding() {
     initializeCtaDemo(session);
     initializeAboutTabs(session);
     initializePreviewDialog(session);
+    initializeReveal(session);
 
     // Adaptive layer bersifat opsional (progressive enhancement)
     try {

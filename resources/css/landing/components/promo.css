@@ -6,7 +6,7 @@
   justify-content: space-between;
   gap: 24px;
   overflow: hidden;
-  margin: 0 0 calc(var(--moon-section-gap) / 2);
+  margin: var(--moon-section-half) 0;
   padding: clamp(20px, 3vw, 28px);
   border: 1px solid rgba(34, 165, 22, .45);
   border-radius: 10px;

@@ -26,5 +26,7 @@
 @import './components/footer.css';
 @import './components/skeleton.css';
 
-/* 5. Responsive & Motion Overrides */
+/* 5. Ambient Lighting, Scroll Reveal, Responsive & Motion Overrides */
+@import './ambient.css';
+@import './motion.css';
 @import './responsive.css';

@@ -1,7 +1,7 @@
 /* ===== Hero ===== */
 .moon-hero {
   padding-top: clamp(88px, 12vw, 120px);
-  padding-bottom: calc(var(--moon-section-gap) / 2);
+  padding-bottom: var(--moon-section-half);
 }
 
 .moon-hero__inner {

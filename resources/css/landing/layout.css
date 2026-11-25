@@ -7,12 +7,12 @@
 /* ===== Bagian & judul ===== */
 .moon-section {
   position: relative;
-  padding-block: calc(var(--moon-section-gap) / 2);
+  padding-block: var(--moon-section-half);
 }
 
 .moon-section-heading {
   max-width: 760px;
-  margin: 0 auto clamp(20px, 3vw, 32px);
+  margin: 0 auto var(--moon-heading-gap);
   text-align: center;
 }
 

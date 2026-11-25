@@ -23,6 +23,8 @@
                 id="previewImg"
                 src="{{ asset('images/dashobard-dummy.png') }}"
                 alt="Pratinjau dashboard MOONITOR dengan suhu, kelembapan, kadar amonia dan hidrogen sulfida, status kandang, grafik kondisi, serta tampilan kandang langsung"
+                width="1600"
+                height="900"
                 loading="lazy"
                 decoding="async"
             >

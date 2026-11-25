@@ -1,0 +1,34 @@
+/* ==========================================================================
+   MOONITOR - Scroll reveal
+   Class .moon-reveal ditambahkan oleh reveal.js (bukan di markup), sehingga
+   tanpa JavaScript konten tetap terlihat. Hanya memakai transform dan opacity,
+   jadi tidak menggeser layout. Elemen target tidak memiliki transform sendiri
+   (hanya elemen anak/pseudo), sehingga tidak ada bentrok.
+   ========================================================================== */
+
+.moon-reveal:not(.is-revealed) {
+  opacity: 0;
+  transform: translate3d(0, var(--moon-reveal-distance), 0);
+}
+
+.moon-reveal.is-revealed {
+  animation: moon-reveal-in var(--moon-reveal-duration) var(--moon-ease-out) var(--reveal-delay, 0ms) backwards;
+}
+
+@keyframes moon-reveal-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--moon-reveal-distance), 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moon-reveal:not(.is-revealed) {
+    opacity: 1;
+    transform: none;
+  }
+
+  .moon-reveal.is-revealed {
+    animation: none;
+  }
+}
